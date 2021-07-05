@@ -1,11 +1,18 @@
 @Library("jenkins-shared-library") _
 
-my_node = k8sagent(name: 'mini+pg')
-podTemplate(my_node) {
-  node(my_node.label) {
-    sh 'echo hello world'
-    container('pg') {
-      sh 'su - postgres -c \'psql --version\''
+pipeline {
+  agent {
+    kubernetes(k8sagent(name: 'mini+pg'))
+  stages {
+    stage('demo') {
+      steps {
+        echo "this is a demo"
+        script {
+          container('pg') {
+            sh 'su - postgres -c \'psql --version\''
+          }
+        }
+      }
     }
   }
 }
