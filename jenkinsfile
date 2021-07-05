@@ -4,7 +4,7 @@ def build_on_node = ''
 def build_on_cloud = ''
 def my_node = [:]
 
-@Library("k8sagent") _
+@Library("jenkins-shared-library") _
 
 pipeline {
   agent none
