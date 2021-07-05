@@ -10,9 +10,10 @@ pipeline {
         script {
           container('pg') {
             sh 'su - postgres -c \'psql --version\''
+            }
           }
         }
       }
     }
   }
-}
+}  
