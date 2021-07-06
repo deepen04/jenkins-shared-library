@@ -1,5 +1,5 @@
 podTemplate(label:'mypod') {  
   node('mypod') {    
-    sh 'Hello world!'  
+    echo 'Hello world!'  
     }
 }
